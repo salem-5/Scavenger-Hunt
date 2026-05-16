@@ -29,4 +29,5 @@
 To run the game locally, clone the repository and run these commands make sure u have qt 6 installed.
 
 1. Clone the repository: `git clone https://github.com/El8azaly/Scavenger_Hunt`
-3. run `cmake -B build && cmake --build build`
+2. Build `cmake -B build && cmake --build build`
+3. Run `./build/'Scavenger Hunt'`
