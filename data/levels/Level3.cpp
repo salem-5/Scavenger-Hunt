@@ -12,16 +12,16 @@ Level3::Level3(QObject* parent)
             ":/assets/sprites/levels/level3_top.png"
         ),
         parent
-    ) {
-    m_windowSprite = std::make_unique<AnimatedSprite>(
+    ),
+    m_windowSprite(std::make_unique<AnimatedSprite>(
         ":/assets/sprites/objects/window.json",
         ":/assets/sprites/objects/window.png"
-    );
-    m_windowLightSprite = std::make_unique<AnimatedSprite>(
+    )),
+    m_windowLightSprite(std::make_unique<AnimatedSprite>(
         ":/assets/sprites/objects/window_light.json",
         ":/assets/sprites/objects/window_light.png"
-    );
-}
+    ))
+{}
 void Level3::update(int deltaTimeMs) {
     m_animationAccumulator += deltaTimeMs;
     if (m_animationAccumulator >= 250) {
