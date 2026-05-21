@@ -83,5 +83,7 @@
     <file>assets/sprites/objects/window_light.png</file>
     <file>assets/sprites/objects/window_light.json</file>
     <file>assets/sprites/levels/level3_collision_data.json</file>
+    <file>assets/icons/icon.png</file>
+    <file>assets/sprites/ui/about.png</file>
   </qresource>
 </RCC>

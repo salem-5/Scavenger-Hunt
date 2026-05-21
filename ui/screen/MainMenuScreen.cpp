@@ -203,6 +203,7 @@ MainMenuScreen::MainMenuScreen(QWidget* p) : QWidget(p),
 }
 
 void MainMenuScreen::drawCredits(QPainter& painter) {
+    return;
     int scale = ui;
     int charSize = 6 * scale;
     int lineSpacing = 2 * scale;

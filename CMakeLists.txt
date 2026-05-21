@@ -16,7 +16,6 @@ set(CMAKE_AUTOUIC ON)
 set(PRODUCT_BUNDLE_IDENTIFIER "net.scavengerhunt.game")
 set(PRODUCT_NAME "Scavenger Hunt")
 set(PRODUCT_COMPANY "Net ScavengerHunt")
-
 find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
 file(GLOB_RECURSE PROJECT_SOURCES
         CONFIGURE_DEPENDS
@@ -43,7 +42,9 @@ file(WRITE ${RC_FILE} "IDI_ICON1 ICON DISCARDABLE \"${CMAKE_CURRENT_SOURCE_DIR}/
 list(APPEND PROJECT_SOURCES ${RC_FILE})
 endif()
 
-add_executable(ScavengerHunt MACOSX_BUNDLE WIN32 ${PROJECT_SOURCES})
+add_executable(ScavengerHunt MACOSX_BUNDLE WIN32 ${PROJECT_SOURCES}
+        ui/screen/AboutDialog.cpp
+        ui/screen/AboutDialog.h)
 
 set_target_properties(ScavengerHunt PROPERTIES
 OUTPUT_NAME "${PRODUCT_NAME}"
@@ -89,5 +90,5 @@ else()
     set(CPACK_GENERATOR "TGZ;DEB")
     set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 endif()
-
+target_compile_definitions(${PROJECT_NAME} PRIVATE APP_VERSION="${PROJECT_VERSION}")
 include(CPack)

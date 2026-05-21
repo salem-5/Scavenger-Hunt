@@ -7,6 +7,9 @@
 #include "screen/QuizDialog.h"
 #include "core/Constants.h"
 #include <QVBoxLayout>
+#include <QMenuBar>
+#include <QMenu>
+#include <QAction>
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     setFixedSize(Constants::WINDOW_WIDTH, Constants::WINDOW_HEIGHT);
@@ -34,8 +37,16 @@ void MainWindow::buildUI() {
     m_stack->addWidget(m_quizScreen);
     m_stack->setCurrentIndex(0);
     setCentralWidget(m_stack);
-}
 
+    QMenuBar* nativeMenuBar = this->menuBar();
+    QMenu* helpMenu = nativeMenuBar->addMenu(tr("&Help"));
+    QAction* aboutAction = helpMenu->addAction(tr("About Scavenger Hunt"));
+    aboutAction->setMenuRole(QAction::AboutRole);
+    connect(aboutAction, &QAction::triggered, this, [this]{
+        AboutDialog dialog(this);
+        dialog.exec();
+    });
+}
 void MainWindow::connectSignals() {
 
     connect(m_game, &Game::stateChanged, this, &MainWindow::onStateChanged);

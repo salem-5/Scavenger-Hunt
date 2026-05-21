@@ -4,6 +4,7 @@
 #include <QString>
 #include "core/Game.h"
 #include "core/GameLoop.h"
+#include "screen/AboutDialog.h"
 
 class GameWidget;
 class MainMenuScreen;
